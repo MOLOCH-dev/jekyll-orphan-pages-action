@@ -5,9 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to crawl website for links
     steps:
+      - name: Checkout
+	uses: actions/checkout@v2	
       - name: crawler action step
         id: crawler
-        uses: MOLOCH-dev/jekyll-orphan-pages-action@v1
+        uses: ./
         with:
           start-url: 'https://open-horizon.github.io/'
       # Use the output from the `hello` step
