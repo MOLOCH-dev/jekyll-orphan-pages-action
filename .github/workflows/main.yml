@@ -6,7 +6,7 @@ jobs:
     name: A job to crawl website for links
     steps:
       - name: Checkout
-	uses: actions/checkout@v2	
+	      uses: actions/checkout@v2	
       - name: crawler action step
         id: crawler
         uses: ./
