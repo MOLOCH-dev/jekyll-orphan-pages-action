@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/sh -l
 export LOG=log.txt;
 echo "got after export";
 wget --mirror --spider "$1" 2>&1 | tee "$LOG";
