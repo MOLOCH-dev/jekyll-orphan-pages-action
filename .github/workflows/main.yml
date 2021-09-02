@@ -7,8 +7,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: wget
-        uses: wei/wget@v1
       - name: crawler action step
         id: crawler
         uses: ./
