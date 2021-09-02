@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo "::set-output name=time::$time"
+export LOG=log.txt
+echo "Url is $1"
+wget --no-directories --mirror --spider "$1" 2>&1 | tee "$LOG"
+arr=(`grep -P -o -e '(?<=^--....-..-.. ..:..:..--  )(.*)' "$LOG"`)
+echo "::set-output name=crawled-urls::$arr"
