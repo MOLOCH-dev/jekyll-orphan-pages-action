@@ -1,13 +1,16 @@
-name: 'Hello World'
-description: 'Greet Someone and record the time'
+# action.yml
+name: 'Crawler action'
+description: 'Crawls website using wget and gets all links'
 inputs:
-    who-to-greet: # id of input
-      description: 'who to Greet'
-      required: true
-      default: 'World'
+  start-url:  # id of input
+    description: 'Url to crawl for links'
+    required: true
+    default: 'https://open-horizon.github.io/'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  crawled-urls: # id of output
+    description: 'Urls received after crawling'
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.start-url }}
